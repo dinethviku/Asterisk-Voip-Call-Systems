@@ -1,0 +1,52 @@
+[general]
+statics=yes
+writeprotect=no
+priorityjumping=no
+autofallthrough=yes
+extenpatternmatchnew=yes
+clearglobalvars=no
+CONSOLE=Console/dsp
+IAXINFO=guest
+TRUNK=DAHDI/G2
+TRUNKMSD=1
+;-------------------
+[internal]
+exten => _1XX,1,NoOp()
+        same => n,Dial(PJSIP/${EXTEN}@mytrunk,60)
+        same => n,HangUp()
+
+exten => _2XX,1,NoOp()
+        same => n,Dial(PJSIP/${EXTEN}@mytrunk,60)
+        same => n,HangUp()
+
+exten => _4XX,1,NoOp()
+        same => n,Dial(PJSIP/${EXTEN}@mytrunk,60)
+        same => n,HangUp()
+
+;-------------------------
+[internal]
+exten => 301,1,NoOp()
+        same => n,Dial(PJSIP/301,60)
+        same => n,VoiceMail(310@default,u)
+        same => n,HangUp()
+
+exten => 302,1,NoOp()
+        same => n,Dial(PJSIP/302,60)
+        same => n,VoiceMail(310@default,u)
+        same => n,HangUp()
+
+exten => 303,1,NoOp()
+        same => n,Dial(PJSIP/303,60)
+        same => n,VoiceMail(310@default,u)
+        same => n,HangUp()
+
+exten => 304,1,NoOp()
+        same => n,Dial(PJSIP/304,60)
+        same => n,VoiceMail(310@default,u)
+        same => n,HangUp()
+
+exten => 305,1,NoOp()
+        same => n,Dial(PJSIP/305,60)
+        same => n,VoiceMail(310@default,u)
+        same => n,HangUp()
+;---------------------------------------
